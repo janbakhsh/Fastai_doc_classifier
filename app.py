@@ -49,17 +49,18 @@ img1.show(figsize=(28, 16), title='Test image')
 
 def predict_single(img_file):
     'function to take image and return prediction'
-    segmented_image = imported_learn.predict(img1)[0]
-    segmented_image.show(figsize=(28, 16), title='Predicted image')
+    #segmented_image = imported_learn.predict(img1)[0]
+    #segmented_image.show(figsize=(28, 16), title='Predicted image')
+    return "my output"
   
-#predict_single(img1)
+mystr = predict_single(img1)
 
 
 # route for prediction
 @app.route('/predict', methods=['POST'])
 def predict():
-    predict_single(img1)
-    #return jsonify(predict_single(request.files['image']))
+    #predict_single(img1)
+    return jsonify(predict_single(img1))  #(request.files['image']))
 
 if __name__ == '__main__':
     app.run()
